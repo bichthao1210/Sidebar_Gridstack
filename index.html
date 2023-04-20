@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Chart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="./Sortable/Sortable.min.js"></script>
+    <style>
+        .ml-auto {
+            position: relative;
+        }
+        .submenu-icon {
+			color: #000;
+			cursor: pointer;
+			font-size: 20px;
+			margin-right: 10px;
+		}
+		.dropdown-menu {
+			display: none;
+			position: absolute;
+			top: 100%;
+			right: 10;
+			min-width: 100px;
+			padding: 10px;
+            margin-left: 25px;
+			background-color: #fff;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			z-index: 1;
+		}
+		.dropdown-menu li {
+			list-style: none;
+		}
+
+        .item-icon {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="indexpickupmenu" class="list-group d-flex" style="position: fixed; left: 0; width: 200px; height:100vh; display: block; border: 1px solid rgb(245, 238, 238);">
+            <button class="list-group-item list-group-item-action pl-3 pr-2 d-inline-flex align-items-center">
+                
+                <span class="tv-resize">
+                    <strong>ピックアップ一覧</strong>
+                </span>
+                <span class="ml-auto" id="idPickupMenuBtn">
+                    <i class="fa fa-ellipsis-v submenu-icon"></i>
+                    <ul class="dropdown-menu">
+                      <li><a id="idSortableBtn" class="dropdown-item" href="#">並び替え</a></li>
+                    </ul>
+                </span>
+            </button>
+
+            <div class="sortable-list">
+           
+                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center active" id="idPickupNo1"
+                data-id="1" onclick="fncPickupMenuClick('idPickupNo1',0)">
+                    <span style="width: 0.7rem">　</span>
+                    <span class="tv-resize">ボード1</span>
+                    <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+
+                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo2" data-id="2"
+                onclick="fncPickupMenuClick('idPickupNo2',1)">
+                    <span style="width: 0.7rem">　</span>
+                    <span class="tv-resize">ボード2</span>
+                    <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+
+                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo3" data-id="3"
+                onclick="fncPickupMenuClick('idPickupNo3',0)">
+                    <span style="width: 0.7rem">　</span>
+                    <span class="tv-resize">ボード3</span>
+                    <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+                
+                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo6" data-id="6"
+                onclick="fncPickupMenuClick('idPickupNo6',0)">
+                    <span style="width: 0.7rem">　</span>
+                    <span class="tv-resize">ボード6</span>
+                    <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+
+                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo8" data-id="8"
+                onclick="fncPickupMenuClick('idPickupNo8',0)">
+                    <span style="width: 0.7rem">　</span>
+                    <span class="tv-resize">ボード8</span>
+                    <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+
+                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo9" data-id="9"
+                onclick="fncPickupMenuClick('idPickupNo9',0)">
+                    <span style="width: 0.7rem">　</span>
+                    <span class="tv-resize">ボード9</span>
+                    <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+
+                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo10"
+                data-id="10" onclick="fncPickupMenuClick('idPickupNo10',0)">
+                    <span style="width: 0.7rem">　</span>
+                    <span class="tv-resize">ボード10</span>
+                    <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+</div>
+        <!-- <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div> -->
+    </div>
+    
+    
+     
+      
+    <script src="script.js">
+    </script>
+</body>
+</html>
