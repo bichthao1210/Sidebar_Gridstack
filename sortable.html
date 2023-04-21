@@ -21,15 +21,32 @@
         .container {
             position: relative;
         }
+
         .ml-auto {
-            position: relative;
-        }
-        .submenu-icon {
-			color: #000;
-			cursor: pointer;
-			font-size: 20px;
-            padding: 8px 15px;
+            position: absolute;
+            right: 5px;
+            top: 10px;
+            width: 35px;
+            padding: 4px 0;
+            text-align: center;
+            border: none;
+            background-color: #fff;
             border-radius: 2px;
+			cursor: pointer;
+            z-index: 1;
+        }
+
+        .ml-auto:hover {
+            background-color: #ccc;
+            border: none;
+        }
+
+        .ml-auto:focus {
+            outline: none;
+        }
+
+        .submenu-icon {
+			font-size: 20px;
 		}
 
         .submenu-icon:hover {
@@ -49,8 +66,6 @@
 		.dropdown-menu li {
 			list-style: none;
 		}
-
-
 
         .item-icon {
             display: none;
@@ -83,12 +98,12 @@
                 <span class="tv-resize">
                     <strong>ピックアップ一覧</strong>
                 </span>
-                <span class="ml-auto" id="idPickupMenuBtn">
+                <button class="ml-auto" id="idPickupMenuBtn">
                     <i class="fa fa-ellipsis-v submenu-icon"></i>
                     <ul class="dropdown-menu">
                       <li><a id="idSortableBtn" class="dropdown-item" href="#">並び替え</a></li>
                     </ul>
-                </span>
+                </button>
                 
             </button>
 
