@@ -7,7 +7,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function() {
-  let saved = false;
+  let saved = true; // Đặt giá trị ban đầu là true để không hiển thị hộp thoại xác nhận đóng
   let originalOrder = [];
 
   // Bắt sự kiện khi nhấp vào nút "並び替え"
@@ -24,6 +24,7 @@ $(document).ready(function() {
           elementArray.push(element.innerText);
         });
         console.log(elementArray);
+        saved = false; // Cập nhật lại giá trị saved khi có thay đổi trên danh sách
       },
     });
 
@@ -52,15 +53,7 @@ $(document).ready(function() {
   });
 
   $("#closeBtn").click(function() {
-    if (saved) {
-      // Cập nhật lại các phần tử đã sắp xếp theo thứ tự mới
-      originalOrder = $("#sortable-list").children().toArray();
-      console.log(originalOrder);
-      $("#idPickupMenuBtn").show();
-      $("#saveBtn").hide();
-      $("#closeBtn").hide();
-      $(".sortable-handle").hide();
-    } else {
+    if (!saved) { // Nếu có thay đổi trên danh sách
       // Hiển thị hộp thoại xác nhận đóng
       if (confirm("Bạn có chắc chắn muốn đóng?")) {
         // Cập nhật lại các phần tử theo thứ tự ban đầu khi chưa sắp xếp chúng
@@ -69,11 +62,25 @@ $(document).ready(function() {
           $("#sortable-list").append(element);
         });
         console.log(originalOrder);
+        saved = true; // Cập nhật lại giá trị saved sau khi đã đóng form
         $("#idPickupMenuBtn").show();
         $("#saveBtn").hide();
         $("#closeBtn").hide();
         $(".sortable-handle").hide();
       }
+    } else {
+      // Đóng form và phục hồi trạng thái ban đầu của danh sách
+      sortable.destroy();
+        $("#sortable-list").empty();
+      originalOrder.forEach(element => {
+        $("#sortable-list").append(element);
+      }); 
+      console.log(originalOrder);
+      $("#idPickupMenuBtn").show();
+      $("#saveBtn").hide();
+      $("#closeBtn").hide();
+      $(".sortable-handle").hide();
     }
   });
 });
+
