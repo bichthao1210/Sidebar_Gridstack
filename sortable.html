@@ -24,7 +24,7 @@
 
         .ml-auto {
             position: absolute;
-            right: 5px;
+            right: 40px;
             top: 10px;
             width: 35px;
             padding: 4px 0;
@@ -45,6 +45,22 @@
             outline: none;
         }
 
+        #close-sidebar {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            padding: 2px 6px;
+            border: none;
+            background-color: #fff;
+            text-align: center;
+            z-index: 1;
+        }
+
+        #close-sidebar i {
+            margin-top: 2px;
+            font-size: 25px;
+        }
+
         .submenu-icon {
 			font-size: 20px;
 		}
@@ -58,7 +74,7 @@
 			top: 100%;
 			min-width: 100px;
 			padding: 10px;
-            margin-left: 45px;
+            margin-left: 77px;
 			background-color: #fff;
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 			z-index: 1;
@@ -87,6 +103,21 @@
             margin-right: 2px;
         }
         
+        #show-sidebar {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            border-radius: 0 4px;
+            width: 35px;
+            transition-delay: 0.3s;
+            z-index: 1;
+            display: none;
+        }
+
+        .sidebar-collapsed {
+            width: 50px;
+        }
+
 
     </style>
 </head>
@@ -104,12 +135,16 @@
                       <li><a id="idSortableBtn" class="dropdown-item" href="#">並び替え</a></li>
                     </ul>
                 </button>
-                
+
+                <button id="close-sidebar" class="sidebar-toggle">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
             </button>
 
             <div id="sortable-list">
            
-                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center active" id="idPickupNo1"
+                <button class="list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center active" id="idPickupNo1"
                 data-id="1" onclick="fncPickupMenuClick('idPickupNo1',0)">
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード1</span>
@@ -118,7 +153,7 @@
                     </span>
                 </button>
 
-                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo2" data-id="2"
+                <button class="list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo2" data-id="2"
                 onclick="fncPickupMenuClick('idPickupNo2',1)">
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード2</span>
@@ -127,7 +162,7 @@
                     </span>
                 </button>
 
-                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo3" data-id="3"
+                <button class="list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo3" data-id="3"
                 onclick="fncPickupMenuClick('idPickupNo3',0)">
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード3</span>
@@ -136,7 +171,7 @@
                     </span>
                 </button>
                 
-                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo6" data-id="6"
+                <button class="list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo6" data-id="6"
                 onclick="fncPickupMenuClick('idPickupNo6',0)">
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード6</span>
@@ -145,7 +180,7 @@
                     </span>
                 </button>
 
-                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo8" data-id="8"
+                <button class="list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo8" data-id="8"
                 onclick="fncPickupMenuClick('idPickupNo8',0)">
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード8</span>
@@ -154,7 +189,7 @@
                     </span>
                 </button>
 
-                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo9" data-id="9"
+                <button class="list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo9" data-id="9"
                 onclick="fncPickupMenuClick('idPickupNo9',0)">
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード9</span>
@@ -163,7 +198,7 @@
                     </span>
                 </button>
 
-                <button class="item list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo10"
+                <button class="list-group-item list-group-item-action pl-3 pr-2 d-flex align-items-center" id="idPickupNo10"
                 data-id="10" onclick="fncPickupMenuClick('idPickupNo10',0)">
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード10</span>
@@ -173,12 +208,16 @@
                 </button>
 
             </div>
+            <div id="show-sidebar" >
+                <!-- icon 3 gạch -->
+                <i class="fa fa-bars" ></i>
+            </div>
             <div class="btn-container">
                 <button id="saveBtn">保存</button>
                 <button id="closeBtn">X</button>
             </div>
         </div>
-</div>
+    </div>
         <!-- <div class="chart-container">
             <canvas id="myChart"></canvas>
         </div> -->

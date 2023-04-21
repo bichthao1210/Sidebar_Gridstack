@@ -107,3 +107,19 @@ $(document).ready(function() {
   });
 });
 
+// ẩn hiện sidebar
+document.getElementById("close-sidebar").addEventListener("click", function() {
+  document.getElementById("indexpickupmenu").style.width = "50px";
+      $("#idPickupMenuBtn").hide();
+      $("#close-sidebar").hide();
+      $(".tv-resize").hide();
+      $("#show-sidebar").show();
+});
+
+document.getElementById("show-sidebar").addEventListener("click", function() {
+  document.getElementById("indexpickupmenu").style.width = "300px";
+      $("#idPickupMenuBtn").show();
+      $("#close-sidebar").show();
+      $(".tv-resize").show();
+      $("#show-sidebar").hide();
+});
