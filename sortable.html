@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -25,9 +26,8 @@
         .ml-auto {
             position: absolute;
             right: 40px;
-            top: 10px;
+            top: 8px;
             width: 35px;
-            padding: 4px 0;
             text-align: center;
             border: none;
             background-color: #fff;
@@ -47,9 +47,9 @@
 
         #close-sidebar {
             position: absolute;
-            top: 10px;
+            top: 8px;
             right: 5px;
-            padding: 2px 6px;
+            padding:0 6px;
             border: none;
             background-color: #fff;
             text-align: center;
@@ -58,8 +58,7 @@
         }
 
         #close-sidebar i {
-            margin-top: 2px;
-            font-size: 25px;
+            font-size: 22px;
         }
 
         #close-sidebar:hover {
@@ -68,7 +67,7 @@
         }
 
         .submenu-icon {
-			font-size: 20px;
+			font-size: 22px;
 		}
 
         .submenu-icon:hover {
@@ -111,8 +110,9 @@
         
         #show-sidebar {
             position: absolute;
-            top: 10px;
-            left: 12px;
+            top: 8px;
+            left: 8px;
+            font-size: 22px;
             text-align: center;
             border: none;
             background-color: #fff;
@@ -157,20 +157,20 @@
                 <span id="titleMenu" class="tv-resize">
                     <strong>ピックアップ一覧</strong>
                 </span>
-                <button class="ml-auto" id="idPickupMenuBtn">
-                    <i class="fa fa-ellipsis-v submenu-icon"></i>
+                <butto  n class="ml-auto" id="idPickupMenuBtn">
+                    <i class="bi bi-three-dots-vertical submenu-icon"></i>
                     <ul class="dropdown-menu">
                       <li><a id="idSortableBtn" class="dropdown-item" href="#">並び替え</a></li>
                     </ul>
-                </button>
+                </butto>
 
                 <button id="close-sidebar" class="sidebar-toggle">
-                    <i class="fa-solid fa-xmark"></i>
+                    <i class="bi bi-x-lg"></i>
                 </button>
 
                 <button id="show-sidebar" >
                     <!-- icon 3 gạch -->
-                    <i class="fa fa-bars" ></i>
+                    <i class="bi bi-list"></i>
                 </button>
             </button>
 
@@ -181,7 +181,7 @@
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード1</span>
                     <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
-                        <i class="fa fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </span>
                 </button>
 
@@ -190,7 +190,7 @@
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード2</span>
                     <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
-                        <i class="fa fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </span>
                 </button>
 
@@ -199,7 +199,7 @@
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード3</span>
                     <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
-                        <i class="fa fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </span>
                 </button>
                 
@@ -208,7 +208,7 @@
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード6</span>
                     <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
-                        <i class="fa fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </span>
                 </button>
 
@@ -217,7 +217,7 @@
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード8</span>
                     <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
-                        <i class="fa fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </span>
                 </button>
 
@@ -226,7 +226,7 @@
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード9</span>
                     <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
-                        <i class="fa fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </span>
                 </button>
 
@@ -235,10 +235,9 @@
                     <span style="width: 0.7rem">　</span>
                     <span class="tv-resize">ボード10</span>
                     <span class="sortable-handle" style="display:none;cursor:pointer;margin-left:auto;">
-                        <i class="fa fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </span>
-                </button>
-
+                </button>           
             </div>
             
             <div class="btn-container">
