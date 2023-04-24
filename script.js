@@ -108,18 +108,32 @@ $(document).ready(function() {
 });
 
 // ẩn hiện sidebar
-document.getElementById("close-sidebar").addEventListener("click", function() {
+document.getElementById("close-sidebar").addEventListener("click", function () {
   document.getElementById("indexpickupmenu").style.width = "50px";
-      $("#idPickupMenuBtn").hide();
-      $("#close-sidebar").hide();
-      $(".tv-resize").hide();
-      $("#show-sidebar").show();
+  $("#idPickupMenuBtn").hide();
+  $("#close-sidebar").hide();
+  $("#titleMenu.tv-resize").hide();
+  var spans = document.querySelectorAll("#sortable-list span.tv-resize");
+  for (var i = 0; i < spans.length; i++) {
+    spans[i].setAttribute("data-initial-value", spans[i].textContent);
+    spans[i].textContent = i + 1;
+    spans[i].classList.add("minimized"); // Thêm lớp mới vào các item
+  }
+  $("#show-sidebar").show();
 });
 
-document.getElementById("show-sidebar").addEventListener("click", function() {
+document.getElementById("show-sidebar").addEventListener("click", function () {
   document.getElementById("indexpickupmenu").style.width = "300px";
-      $("#idPickupMenuBtn").show();
-      $("#close-sidebar").show();
-      $(".tv-resize").show();
-      $("#show-sidebar").hide();
+  $("#idPickupMenuBtn").show();
+  $("#close-sidebar").show();
+  $(".tv-resize").show();
+  $("#show-sidebar").hide();
+  var spans = document.querySelectorAll("#sortable-list span.tv-resize");
+  for (var i = 0; i < spans.length; i++) {
+    var initialValue = spans[i].getAttribute("data-initial-value");
+    if (initialValue) {
+      spans[i].textContent = initialValue;
+      spans[i].classList.remove("minimized"); // Xóa lớp mới khỏi các item
+    }
+  }
 });

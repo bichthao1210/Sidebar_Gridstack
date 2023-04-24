@@ -54,11 +54,17 @@
             background-color: #fff;
             text-align: center;
             z-index: 1;
+            cursor: pointer;
         }
 
         #close-sidebar i {
             margin-top: 2px;
             font-size: 25px;
+        }
+
+        #close-sidebar:hover {
+            background-color: #ccc;
+            border-radius: 2px;
         }
 
         .submenu-icon {
@@ -105,17 +111,30 @@
         
         #show-sidebar {
             position: absolute;
-            left: 20px;
-            top: 10px;
+            left: 18px;
+            top: 12px;
             border-radius: 0 4px;
             width: 35px;
-            transition-delay: 0.3s;
             z-index: 1;
             display: none;
+            cursor: pointer;
         }
 
         .sidebar-collapsed {
             width: 50px;
+        }
+
+        .list-group-item {
+            min-height: 50px;
+        }
+
+        .minimized {  
+            position: absolute;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #49aeae;
+            width: 22px;
+            color: #fff;
         }
 
 
@@ -126,7 +145,7 @@
         <div id="indexpickupmenu" class="list-group d-flex" style="position: fixed; left: 0; width: 300px; height:100vh; display: block; border: 1px solid rgb(245, 238, 238);">
             <button class="list-group-item list-group-item-action pl-3 pr-2 d-inline-flex align-items-center">
                 
-                <span class="tv-resize">
+                <span id="titleMenu" class="tv-resize">
                     <strong>ピックアップ一覧</strong>
                 </span>
                 <button class="ml-auto" id="idPickupMenuBtn">
