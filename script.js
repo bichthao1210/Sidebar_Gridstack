@@ -156,226 +156,69 @@ $(function () {
 });
 
 
-// Graph
-
-// Lấy dữ liệu từ đối tượng
-// const data = {
-//   status: 200,
-//   respons: {
-//     item1: {
-//       data: [
-//         { time: "2023-04-17 00:00:00", value: "8" },
-//         { time: "2023-04-17 00:02:00", value: "8" },
-//       ],
-//       yAxisID: "y-axes-0",
-//       ymin: 0,
-//       ymax: 100,
-//       Point: 2,
-//       TimeFormat: "HH:mm",
-//       type: "line",
-//       name: "DI3.Count",
-//       unit: "",
-//       color: "#335744",
-//     },
-//     item2: {
-//       data: [
-//         { time: "2023-04-17 00:00:00", value: "8" },
-//         { time: "2023-04-17 00:02:00", value: "8" },
-//       ],
-//       yAxisID: "y-axes-1",
-//       ymin: 0,
-//       ymax: 100,
-//       Point: 1,
-//       TimeFormat: "HH:mm",
-//       type: "bar",
-//       name: "Power hour",
-//       unit: "kWh",
-//       color: "#b51b44",
-//     },
-//   },
-// };
-
-// const chartData = {
-//   datasets: [],
-//   labels: [],
-// };
-
-// for (const key in data.respons) {
-//   const item = data.respons[key];
-//   if (item.data.length > 0) {
-//     const dataset = {
-//       label: item.name,
-//       yAxisID: item.yAxisID,
-//       data: item.data.map((d) => d.value),
-//       type: item.type,
-//       backgroundColor: item.color,
-//       borderColor: item.color,
-//       fill: item.type === "line" ? false : undefined,
-//     };
-//     chartData.datasets.push(dataset);
-//     if (!chartData.labels.length) {
-//       chartData.labels = item.data.map((d) => moment(d.time).format("HH:mm"));
-//     }
-//   }
-// }
-
-// // Sử dụng Chart.js để vẽ đồ thị
-// const ctx = document.getElementById("myChart").getContext("2d");
-
-// const myChart = new Chart(ctx, {
-//   type: "bar",
-//   data: chartData,
-//   options: {
-//     plugins: {
-//       tooltip: {
-//         enabled: false,
-//       },
-//     },
-//     responsive: true,
-//     legend: {
-//       position: "top",
-//       align: "end",
-//     },
-//     scales: {
-//       yAxes: Object.keys(data.respons).map((key) => ({
-//         yAxisID: data.respons[key].yAxisID,
-//         id: data.respons[key].yAxisID,
-//         type: "linear",
-//         position: data.respons[key].yAxisID === "y-axes-0" ? "left" : "right",
-//         gridLines: {
-//           display: data.respons[key].yAxisID === "y-axes-0" ? true : false,
-//         },
-//         ticks: {
-//           beginAtZero: true,
-//           min: data.respons[key].ymin,
-//           max: data.respons[key].ymax,
-//           callback: function (value, index, values) {
-//             return value.toFixed(data.respons[key].Point);
-//           },
-//         },
-//       })),
-//     },
-//     datasetOptions: Object.keys(data.respons).reduce((acc, key) => {
-//       if (data.respons[key].type === "bar") {
-//         acc["bar"] = {
-//           yAxisID: data.respons[key].yAxisID,
-//           backgroundColor: data.respons[key].color,
-//           borderColor: data.respons[key].color,
-//         };
-//       }
-//       return acc;
-//     }, {}),
-//   },
-// });
-
-
-// function updateChartData() {
-//   // Tạo dữ liệu dummy để test
-//   const item1Data = [
-//     {
-//       time: moment().format("YYYY-MM-DD HH:mm:ss"),
-//       value: Math.random() * 100,
-//     },
-//     {
-//       time: moment().add(2, "minutes").format("YYYY-MM-DD HH:mm:ss"),
-//       value: Math.random() * 100,
-//     },
-//   ];
-//   const item2Data = [
-//     {
-//       time: moment().format("YYYY-MM-DD HH:mm:ss"),
-//       value: Math.random() * 150,
-//     },
-//     {
-//       time: moment().add(2, "minutes").format("YYYY-MM-DD HH:mm:ss"),
-//       value: Math.random() * 150,
-//     },
-//   ];
-
-//   // Cập nhật dữ liệu cho biểu đồ
-//   if (chartData.datasets.length >= 1) {
-//     chartData.datasets[0].data = item1Data.map((d) => d.value);
-//     chartData.labels = item1Data.map((d) => moment(d.time).format("HH:mm"));
-//   }
-//   if (chartData.datasets.length >= 2) {
-//     chartData.datasets[1].data = item2Data.map((d) => d.value);
-//     if (!chartData.labels.length) {
-//       chartData.labels = item2Data.map((d) => d.time);
-//     }
-//   }
-
-//   // Vẽ lại biểu đồ với dữ liệu mới
-//   myChart.update();
-
-// }
-
-
-// // Cập nhật dữ liệu và vẽ đồ thị sau mỗi 2 phút
-// setInterval(updateChartData, 2 * 60 * 1000);
-
 const url = 'https://qtucgrun66.execute-api.ap-northeast-1.amazonaws.com/v1/api-hlrgwl-web?path=pickup&type=getRealtimeData&pickupNo=1';
-      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiaGFrYXJ1MDEiLCJ1c2VyX25hbWUiOiJoYWthcnUwMiIsInVzZXJfdHlwZSI6MSwiZXhwIjoxNzE0MTE1MjM4LCJpYXQiOjE2ODI1NzkyMzh9.dg5vkF66NOsYs1o9VFr38v1VyjkvWWJB3wDHk1ieyP8';
-      const config = {
-        headers: { Authorization: `Bearer ${token}` },
-      };
-      axios.get(url, config)
-      .then((response) => {
-        const filteredData = response.data.Respons.filter(
-          (item) => item.cardType === 3
-        );
-        
-        // check cardType and set chart type accordingly
-        let chartType = 'line';
-        if (filteredData[0].cardType === 0) {
-          chartType = 'line';
-        } else if (filteredData[0].cardType === 1) {
-          chartType = 'bar';
-        }
-      
-        // get the data for each output in the outputData array
-        const dataset1 = {
-          label: filteredData[0].outputData[0].outputName,
-          data: filteredData[0].outputData[0].data.map((dataItem) => dataItem.Value),
-          backgroundColor: filteredData[0].outputData[0].backColor,
-          borderColor: filteredData[0].outputData[0].foreColor,
-          borderWidth: 1,
-          fill: false, // thêm fill: false để tắt chức năng tô màu cho khu vực dưới đường biểu đồ
-          spanGaps: true, // thêm spanGaps: true để cho phép vẽ đường thẳng nối các điểm của biểu đồ
-        };
-      
-        const dataset2 = {
-          label: filteredData[0].outputData[1].outputName,
-          data: filteredData[0].outputData[1].data,
-          backgroundColor: filteredData[0].outputData[1].backColor,
-          borderColor: filteredData[0].outputData[1].foreColor,
-          borderWidth: 1,
-          fill: false, // thêm fill: false để tắt chức năng tô màu cho khu vực dưới đường biểu đồ
-          spanGaps: true, // thêm spanGaps: true để cho phép vẽ đường thẳng nối các điểm của biểu đồ
-        };
-        
-        // create a new chart instance
-        const ctx = document.getElementById("myChart").getContext("2d");
-        const myChart = new Chart(ctx, {
-          type: chartType, // set the chart type based on the cardType
-          data: {
-            labels: filteredData[0].outputData[0].data.map((dataItem) => moment(dataItem.time).format("HH:mm")),
-            datasets: [dataset1, dataset2],
+const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiaGFrYXJ1MDEiLCJ1c2VyX25hbWUiOiJoYWthcnUwMiIsInVzZXJfdHlwZSI6MSwiZXhwIjoxNzE0MTE1MjM4LCJpYXQiOjE2ODI1NzkyMzh9.dg5vkF66NOsYs1o9VFr38v1VyjkvWWJB3wDHk1ieyP8';
+const config = {
+  headers: { Authorization: `Bearer ${token}` },
+};
+axios.get(url, config)
+.then((response) => {
+  const filteredData = response.data.Respons.filter(
+    (item) => item.cardType === 3
+  );
+  
+  // check cardType and set chart type accordingly
+  let chartType = 'line';
+  if (filteredData[0].cardType === 0) {
+    chartType = 'line';
+  } else if (filteredData[0].cardType === 1) {
+    chartType = 'bar';
+  }
+
+  // get the data for each output in the outputData array
+  const dataset1 = {
+    label: filteredData[0].outputData[0].outputName,
+    data: filteredData[0].outputData[0].data.map((dataItem) => dataItem.Value),
+    backgroundColor: filteredData[0].outputData[0].backColor,
+    borderColor: filteredData[0].outputData[0].foreColor,
+    borderWidth: 1,
+    fill: false, // thêm fill: false để tắt chức năng tô màu cho khu vực dưới đường biểu đồ
+    spanGaps: true, // thêm spanGaps: true để cho phép vẽ đường thẳng nối các điểm của biểu đồ
+  };
+
+  const dataset2 = {
+    label: filteredData[0].outputData[1].outputName,
+    data: filteredData[0].outputData[1].data,
+    backgroundColor: filteredData[0].outputData[1].backColor,
+    borderColor: filteredData[0].outputData[1].foreColor,
+    borderWidth: 1,
+    fill: false, // thêm fill: false để tắt chức năng tô màu cho khu vực dưới đường biểu đồ
+    spanGaps: true, // thêm spanGaps: true để cho phép vẽ đường thẳng nối các điểm của biểu đồ
+  };
+  
+  // create a new chart instance
+  const ctx = document.getElementById("myChart").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: chartType, // set the chart type based on the cardType
+    data: {
+      labels: filteredData[0].outputData[0].data.map((dataItem) => moment(dataItem.time).format("HH:mm")),
+      datasets: [dataset1, dataset2],
+    },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              min: -50,
+              max: 50,
+              beginAtZero: true,
+            },
           },
-          options: {
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    min: -50,
-                    max: 50,
-                    beginAtZero: true,
-                  },
-                },
-              ],
-            },            
-          },
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        ],
+      },            
+    },
+  });
+})
+.catch((error) => {
+  console.error(error);
+});
