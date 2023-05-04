@@ -103,7 +103,7 @@
 #show-sidebar {
     position: absolute;
     top: 8px;
-    left: 8px;
+    left: 13px;
     font-size: 22px;
     text-align: center;
     border: none;
@@ -139,7 +139,10 @@
     width: 22px;
     color: #fff;
 }
-
+.grid-stack {
+    margin-left: 300px;
+    right: 0;
+}
 
 .grid-stack > .grid-stack-item > .grid-stack-item-content {
     margin: 0;
