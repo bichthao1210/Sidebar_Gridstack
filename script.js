@@ -119,6 +119,7 @@ document.getElementById("close-sidebar").addEventListener("click", function () {
     spans[i].classList.add("minimized"); // Thêm lớp mới vào các item
   }
   $("#show-sidebar").show();
+  document.querySelector(".grid-stack").style.marginLeft = "60px";
 });
 
 document.getElementById("show-sidebar").addEventListener("click", function () {
@@ -135,6 +136,7 @@ document.getElementById("show-sidebar").addEventListener("click", function () {
       spans[i].classList.remove("minimized"); // Xóa lớp mới khỏi các item
     }
   }
+  document.querySelector(".grid-stack").style.marginLeft = "310px";
 });
 
 //Gridstack

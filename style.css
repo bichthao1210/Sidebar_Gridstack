@@ -139,10 +139,7 @@
     width: 22px;
     color: #fff;
 }
-.grid-stack {
-    margin-left: 310px;
-    right: 0;
-}
+
 
 .grid-stack > .grid-stack-item > .grid-stack-item-content {
     margin: 0;
