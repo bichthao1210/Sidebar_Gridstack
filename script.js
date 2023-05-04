@@ -146,15 +146,11 @@ $(function () {
     draggable: {
       handle: '.panel-heading, header', 
       scroll: false, 
-    },  
+    },
   };
   
   $('.grid-stack').gridstack(options);
-
-
-  
 });
-
 
 const url = 'https://qtucgrun66.execute-api.ap-northeast-1.amazonaws.com/v1/api-hlrgwl-web?path=pickup&type=getRealtimeData&pickupNo=1';
 const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiaGFrYXJ1MDEiLCJ1c2VyX25hbWUiOiJoYWthcnUwMiIsInVzZXJfdHlwZSI6MSwiZXhwIjoxNzE0MTE1MjM4LCJpYXQiOjE2ODI1NzkyMzh9.dg5vkF66NOsYs1o9VFr38v1VyjkvWWJB3wDHk1ieyP8';
@@ -215,10 +211,15 @@ axios.get(url, config)
             },
           },
         ],
-      },            
+      },
+      responsive: true,
+      maintainAspectRatio: false,
     },
   });
 })
+
+
 .catch((error) => {
   console.error(error);
 });
+

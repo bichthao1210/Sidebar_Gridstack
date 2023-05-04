@@ -8,7 +8,6 @@
     position: relative;
 }
 
-
 .ml-auto {
     position: absolute;
     right: 40px;
@@ -140,9 +139,6 @@
     width: 22px;
     color: #fff;
 }
-.widget #main{
-    margin:30px;
-  }
 .grid-stack {
     margin-left: 310px;
     right: 0;
@@ -157,7 +153,6 @@
     bottom: 0;
     width: auto;
     z-index: 0!important;
-    overflow-x: hidden;
     overflow-y: hidden;
 }
 
@@ -189,7 +184,28 @@
     color: inherit;
 }
 
+.panel-body {
+    margin: 10px;
+}
+
+.grid-stack-item .panel-body {
+  height: calc(100% - 20px); /* adjust for panel-heading */
+  width: calc(100% - 20px);
+}
+
+
 .grid-stack .grid-stack-item .grid-stack-item-content .panel-heading, .grid-stack .grid-stack-item .grid-stack-item-content header {
     cursor: grab;
+}
+
+.grid-stack-item.ui-draggable.ui-resizable .grid-stack-item-content {
+    box-shadow: 0px 0px 7px #80808038;
+    background: #fff;
+    width:calc(100% - 20px);
+    margin:auto;
+}
+
+.chart-container {
+    height: calc(100% - 40px);
 }
 
